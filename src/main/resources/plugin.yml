@@ -1,0 +1,7 @@
+name: EnhancedStats
+version: '${version}'
+main: me.serbob.enhancedstats.EnhancedStats
+api-version: '1.13'
+commands:
+  stats:
+    description: View player stats
