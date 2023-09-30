@@ -10,6 +10,7 @@ public final class EnhancedStats extends JavaPlugin {
     @Override
     public void onEnable() {
         instance=this;
+        saveDefaultConfig();
         getCommand("stats").setExecutor(new StatsCommand());
         getCommand("stats").setTabCompleter(new StatsTabCompleter());
         getServer().getPluginManager().registerEvents(new InventoryEventClick(),this);

@@ -27,7 +27,9 @@ public class StatsCommand implements CommandExecutor {
         ClickableHead clickableHead;
         if(args.length<1) {
             clickableHead = new ClickableHead(player,player.getName(), Collections.emptyList());
-            clickableHead.initializeGUI(new MainHolder(), 36,"              Statistics");
+            String title = GlobalUtil.c(EnhancedStats.instance.getConfig().getString("title")
+                            .replace("{player}",player.getName()));
+            clickableHead.initializeGUI(new MainHolder(), 36,title);
             String template = EnhancedStats.instance.getConfig().getString("clickable_heads_template");
 
             if(TemplateManager.doesTemplateExist(template)) {
@@ -45,7 +47,9 @@ public class StatsCommand implements CommandExecutor {
                 return false;
             }
             clickableHead = new ClickableHead(target,targetName,Collections.emptyList());
-            clickableHead.initializeGUI(new MainHolder(), 36,"              Statistics");
+            String title = GlobalUtil.c(EnhancedStats.instance.getConfig().getString("title")
+                    .replace("{player}",targetName));
+            clickableHead.initializeGUI(new MainHolder(), 36,title);
             String template = EnhancedStats.instance.getConfig().getString("clickable_heads_template");
 
             if(TemplateManager.doesTemplateExist(template)) {
